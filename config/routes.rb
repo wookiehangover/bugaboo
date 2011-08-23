@@ -1,4 +1,8 @@
 Bugaboo::Application.routes.draw do
+
+  root :to => 'home#index'
+  resource :sessions, :only => [ :create, :new, :destroy ]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
