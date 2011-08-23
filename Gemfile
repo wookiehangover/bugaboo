@@ -7,6 +7,7 @@ gem 'rails', '3.1.0.rc6'
 
 gem 'pg'
 gem 'sprockets', '2.0.0.beta.13'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
