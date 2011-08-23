@@ -16,4 +16,15 @@ describe User do
 
   end
 
+  context "Admin user" do
+
+  end
+
+  it "should be able to be soft deleted" do
+    user = Factory(:user)
+    user.should_not be_soft_deleted
+    user.destroy
+    user.should be_soft_deleted
+  end
+
 end

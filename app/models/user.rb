@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     find_by_email(email).try(:authenticate, password)
   end
 
+  def destroy
+    self.update_attribute(:deleted_at, Time.now.utc)
+  end
+
 end
