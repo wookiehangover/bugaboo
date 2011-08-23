@@ -1,5 +1,19 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context "Guest user" do
+
+    it "should be able to authenticate" do
+      user = Factory(:user)
+      User.authenticate(user.email, user.password).should_not == false
+    end
+
+    it "should not be able to authenticate" do
+      user = Factory(:user)
+      User.authenticate(user.email, 'wrong') == false
+    end
+
+  end
+
 end
