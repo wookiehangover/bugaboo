@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
 
-  def new
+  layout 'login'
 
+  def new
   end
 
   def create
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies[:auth_token] = nil
+    cookies.delete :auth_token
     redirect_to root_url, :notice => "Logged out!"
   end
 

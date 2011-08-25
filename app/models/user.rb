@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     is_admin
   end
 
+  def assigned_count
+    Bug.where(:user_assigned_id => id, :current_state => 'Open').count
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

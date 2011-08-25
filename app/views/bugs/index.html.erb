@@ -1,7 +1,8 @@
-<h1>Bugs</h1>
-<%= link_to "Add Bug", new_bug_path %>
+<h2>Bugs</h2>
+<%= link_to "Add Bug", new_bug_path, :class => 'add-btn' %>
 <table>
   <thead>
+    <th><%= sortable "id", "Ticket Number" %></th>
     <th><%= sortable "summary" %></th>
     <th><%= sortable "current_state", "State" %></th>
     <th><%= sortable "severity" %></th>

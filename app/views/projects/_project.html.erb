@@ -1,4 +1,11 @@
-<li>
-  <%= link_to project.name, edit_project_path(project) %>
-  <%= link_to "Delete", project_path(project), :method => :delete %>
-</li>
+<tr>
+  <td>
+    <%= link_to project.name, edit_project_path(project) %>
+  </td>
+  <td>
+    <%= project.created_at %>
+  </td>
+  <td>
+    <%= link_to "Delete", project_path(project), :method => :delete %>
+  </td>
+</tr>

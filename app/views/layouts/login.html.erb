@@ -21,10 +21,7 @@
 
 <body>
 
-  <div id="container">
-    <header>
-      <%= render 'partials/nav' %>
-    </header>
+  <div id="container" class="login">
 
     <div class="notifications">
       <% if alert %>
@@ -36,6 +33,11 @@
     </div>
 
     <div id="main" role="main">
+      <h1>Bugaboo</h1>
+      <div id="logo">
+        <img src="/assets/icon.png">
+      </div>
+
       <%= yield %>
     </div>
 

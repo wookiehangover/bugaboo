@@ -1,8 +1,12 @@
 <div id="new_password">
   <%= form_tag( password_resets_path, :method => "post") do  %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <div class="form-row">
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+    </div>
 
-    <%= submit_tag 'Reset Password' %>
+    <div class="form-row button-row">
+      <%= submit_tag 'Reset Password' %>
+    </div>
   <% end %>
 </div><!--// end new_password //-->

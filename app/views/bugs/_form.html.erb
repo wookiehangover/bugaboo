@@ -1,7 +1,7 @@
 <%= form_for @bug  do |f| %>
   <% if @bug.errors.any? %>
-   <div class="error_messages">
-     <h2>Form is invalid</h2>
+   <div class="error-messages">
+     <h2><marquee>Form is invalid</marquee></h2>
      <ul>
        <% for message in @bug.errors.full_messages %>
          <li><%= message %></li>
@@ -22,7 +22,7 @@
     <%= select(:bug, :user_assigned_id, @users, {:prompt => 'Assign to user'}) %>
   </div>
   <div class="form-row">
-    <%= f.label :project %>
+    <%= f.label :project_id, 'Project' %>
     <%= select(:bug, :project_id, @projects, {:prompt => 'Assign to project'}) %>
   </div>
   <div class="form-row">

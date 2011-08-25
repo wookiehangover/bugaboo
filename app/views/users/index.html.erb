@@ -1,5 +1,14 @@
-<h1>Users</h1>
-<%= link_to "Add User", new_user_path %>
-<ul>
-  <%= render :partial => 'user', :collection => @users %>
-</ul>
+<h2>Users</h2>
+<%= link_to "Add User", new_user_path, :class => 'add-btn' %>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Assigned bugs</th>
+    <th>Created</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= render :partial => 'user', :collection => @users %>
+  </tbody>
+</table>

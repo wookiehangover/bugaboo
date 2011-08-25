@@ -1,5 +1,13 @@
-<h1>Projects</h1>
-<%= link_to "Add Project", new_project_path %>
-<ul>
-  <%= render :partial => 'project', :collection => @projects %>
-</ul>
+<h2>Projects</h2>
+<%= link_to "Add Project", new_project_path, :class => 'add-btn'%>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Created At</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= render :partial => 'project', :collection => @projects %>
+  </tbody>
+</table>
+

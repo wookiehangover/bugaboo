@@ -1,13 +1,18 @@
-<fieldset id="login">
-  <legend>Login</legend>
-  <%= form_tag("/sessions", :method => "post") do |f| %>
+<%= form_tag("/sessions", :method => "post", :id => 'login' ) do |f| %>
+  <div class="form-row">
     <%= label_tag :email %>
     <%= text_field_tag :email %>
+  </div>
+  <div class="form-row">
     <%= label_tag :password %>
     <%= password_field_tag :password %>
+  </div>
+  <div class="form-row">
+    <%= label_tag :remember_me %>
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  </div>
+  <div class="form-row button-row">
     <%= submit_tag "Login" %>
     <%= link_to 'Forgot Your Password?', new_password_reset_path %>
-  <% end %>
-
-</fieldset>
+  </div>
+<% end %>
