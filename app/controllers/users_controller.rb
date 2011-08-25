@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     authorize! :read, User
-    @users = User.all
+    @users = User.accessible_by(current_ability)
   end
 
   def edit
