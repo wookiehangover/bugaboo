@@ -1,6 +1,8 @@
 <li>
   <%= link_to bug.summary, edit_bug_path(bug) %><br />
   by: <%= bug.author.full_name %><br />
-  assigned to: <%= bug.assigned.full_name %><br />
+  <% if bug.assigned %>
+    assigned to: <%= bug.assigned.full_name %><br />
+  <% end %>
   <%= link_to "Delete", bug_path(bug), :method => :delete %>
 </li>

@@ -1,6 +1,6 @@
 Bugaboo::Application.routes.draw do
 
-  root :to => 'bugs#index'
+  root :to => 'home#index'
   resource :sessions, :only => [ :create, :new, :destroy ]
   resources :password_resets, :only => [ :create, :edit, :new, :update ]
   resources :projects
