@@ -8,4 +8,5 @@ class Bug < ActiveRecord::Base
 
   STATES = %w(Open Closed)
   SEVERITIES = ["Meh", "Pretty bad", "Sound the alarm"]
+
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Bugs" do
 
   before :all do
-    @bug = Factory(:bug)
+    @bug  = Factory(:bug)
   end
 
   context "user" do
@@ -13,9 +13,11 @@ describe "Bugs" do
       login( @user )
     end
 
-    it "should be able to see a list of bugs" do
+    it "should be able to see a paginated list of bugs" do
+      FactoryGirl.create_list(:bug, 25)
       visit bugs_path
       page.should have_content("The website is down")
+      page.should have_content("2")
     end
 
     it "should be able to edit a bug" do

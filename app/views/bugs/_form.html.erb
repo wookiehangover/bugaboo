@@ -18,6 +18,7 @@
     <%= f.text_area :steps_to_reproduce %>
   </div>
   <div class="form-row">
+    <%= f.label :user_assigned_id, "Assign to" %>
     <%= select(:bug, :user_assigned_id, @users, {:prompt => 'Assign to user'}) %>
   </div>
   <div class="form-row">
@@ -32,7 +33,7 @@
     <%= f.label :severity %>
     <%= select(:bug, :severity, Bug::SEVERITIES) %>
   </div>
-  <div class="form-row">
+  <div class="form-row button-row">
     <%= f.submit 'Save' %>
   </div>
 <% end %>

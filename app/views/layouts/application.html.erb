@@ -1,17 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title>Bugaboo</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <%= csrf_meta_tags %>
+
+  <title>Bugaboo</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <%= stylesheet_link_tag    "application" %>
+
+  <script src="/javascripts/libs/modernizr-2.0.6.min.js"></script>
 </head>
+
 <body>
 
-<p id="notice"><%= notice %></p>
-<p id="alert"><%= alert %></p>
-<div id="logo">Bugaboo</div>
-<%= yield %>
+  <div id="container">
+    <header>
+      <h1>Bugaboo</h1>
+      <div id="logo"></div>
+    </header>
+
+    <div class="notifications">
+      <p id="alert"><%= alert %></p>
+      <p id="notice"><%= notice %></p>
+    </div>
+
+    <div id="main" role="main">
+      <%= yield %>
+    </div>
+
+    <footer>
+
+    </footer>
+  </div>
+
+  <%= javascript_include_tag "application" %>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
 
 </body>
 </html>

@@ -1,6 +1,18 @@
 <h1>Bugs</h1>
 <%= link_to "Add Bug", new_bug_path %>
-<ul>
-  <%= render :partial => 'bug', :collection => @bugs %>
-</ul>
+<table>
+  <thead>
+    <th><%= sortable "summary" %></th>
+    <th><%= sortable "current_state", "State" %></th>
+    <th><%= sortable "severity" %></th>
+    <th><%= sortable "author_id", "Creator" %></th>
+    <th><%= sortable "user_assigned_id", "Assigned" %></th>
+    <th><%= sortable "created_at", "Created" %></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= render :partial => 'bug', :collection => @bugs %>
+  </tbody>
+</table>
+<%= will_paginate @bugs %>
 

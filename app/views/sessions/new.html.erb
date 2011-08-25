@@ -4,7 +4,7 @@
     <%= label_tag :email %>
     <%= text_field_tag :email %>
     <%= label_tag :password %>
-    <%= text_field_tag :password %>
+    <%= password_field_tag :password %>
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     <%= submit_tag "Login" %>
     <%= link_to 'Forgot Your Password?', new_password_reset_path %>

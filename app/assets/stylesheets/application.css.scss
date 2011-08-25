@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require normalize
+ *= require_self
+*/
+@import 'bourbon';
+
+$gw-column: 100px;          // Column Width
+$gw-gutter: 40px;           // Gutter Width
+
+@mixin triangle {
+  width: 0px;
+  height: 10px;
+  border: 5px dashed #666;
+}
+
+@mixin asc {
+  @include triangle;
+  @include position(absolute, 3px 4px 0 0);
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+@mixin desc {
+  @include triangle;
+  @include position(absolute, 12px 4px 0 0);
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+
+a { color: #000; text-decoration: underline; }
+a:visited { color: #000; }
+a:hover { color:#444; text-decoration: none; }
+
+#container {
+  width: grid-width(7);
+  margin: 0 auto;
+}
+
+table {
+  width: grid-width(7);
+  margin-top: $gw-gutter;
+
+  th {
+    text-align: left;
+    padding: .5em 1em;
+    position: relative;
+
+    a.current.desc:after {
+      content: "";
+      @include desc;
+    }
+
+    a.current.asc:after {
+      content: "";
+      @include asc;
+    }
+  }
+
+  tr {
+    border: 1px solid #ccc;
+
+    td {
+      padding: 1em;
+    }
+  }
+  tr:nth-of-type(2n) { background: #eaeaea; }
+
+}
+
+
+form {
+  width: grid-width(5);
+  margin-top: $gw-gutter;
+
+  .form-row {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 24px;
+
+    &.button-row {
+      margin-top: $gw-gutter;
+      margin-left: grid-width(2) + 3;
+    }
+
+    label {
+      width: grid-width(2) - 16;
+      text-align: right;
+      margin-right: 16px;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
+      &:after {
+        content: ":";
+      }
+    }
+
+    input[type=text],
+    input[type=password],
+    textarea {
+      padding: 6px;
+      width: grid-width(3);
+      border: 1px solid #666;
+      @include border-radius(4px);
+    }
+
+    textarea { height: 6em; }
+
+    select {
+      min-width: grid-width(2);
+    }
+
+    button, input[type="submit"] {
+      @include button;
+    }
+
+  }
+
+}
+
+
+

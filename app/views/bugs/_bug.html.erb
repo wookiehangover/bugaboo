@@ -1,8 +1,28 @@
-<li>
-  <%= link_to bug.summary, edit_bug_path(bug) %><br />
-  by: <%= bug.author.full_name %><br />
-  <% if bug.assigned %>
-    assigned to: <%= bug.assigned.full_name %><br />
-  <% end %>
-  <%= link_to "Delete", bug_path(bug), :method => :delete %>
-</li>
+<tr>
+  <td>
+    <%= link_to bug.summary, edit_bug_path(bug) %>
+  </td>
+  <td>
+    <%= bug.current_state %>
+  </td>
+  <td>
+    <%= bug.severity %>
+  </td>
+  <td>
+    <%= bug.author.full_name %>
+  </td>
+  <td>
+    <% if bug.assigned %>
+      <%= bug.assigned.full_name %>
+    <% else %>
+      Not Assigned
+    <% end %>
+  </td>
+  <td>
+    <%= bug.created_at %>
+  </td>
+  <td>
+    <%= link_to "Delete", bug_path(bug), :method => :delete %>
+  </td>
+</tr>
+

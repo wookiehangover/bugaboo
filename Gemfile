@@ -8,12 +8,14 @@ gem 'rails', '3.1.0.rc6'
 gem 'pg'
 gem 'sprockets', '2.0.0.beta.13'
 gem 'cancan'
+gem 'will_paginate', '~> 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails', '  ~> 3.1.0.rc'
   gem 'coffee-rails', '~> 3.1.0.rc'
+  gem 'bourbon'
   gem 'uglifier'
 end
 
@@ -36,6 +38,7 @@ group :test do
   gem 'rb-fsevent'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :test, :development do
