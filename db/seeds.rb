@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user = User.create( first_name: 'Admin', last_name: 'User', email: 'info@quickleft.com', password: 'ch@nge,me', password_confirmation: 'ch@nge,me')
+user.is_admin = true
+user.save!
+
+project = Project.create( [{ name: "Awesome project one", is_active: true }, { name: "Awesome project two", is_active: true }] )

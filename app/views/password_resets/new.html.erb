@@ -1,0 +1,8 @@
+<div id="new_password">
+  <%= form_tag( password_resets_path, :method => "post") do  %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+
+    <%= submit_tag 'Reset Password' %>
+  <% end %>
+</div><!--// end new_password //-->

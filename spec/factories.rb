@@ -1,12 +1,12 @@
 FactoryGirl.define do
 
   factory :user do
-    first_name             'Jane'
-    last_name              'Doe'
+    first_name             'Snoop'
+    last_name              'Dogg'
     password               'ch@nge,me'
     password_confirmation  'ch@nge,me'
     is_admin               false
-    sequence(:email)       {|n| 'info+#{n}@quickleft.com' }
+    sequence(:email)       {|n| "info+#{n}@quickleft.com" }
   end
 
   factory :admin, :parent => 'user' do
@@ -15,10 +15,9 @@ FactoryGirl.define do
     is_admin    true
   end
 
-  factory :deleted, :parent => 'user' do
-    first_name  'Jake'
-    last_name   'Doe'
-    deleted_at  { 1.day.ago }
+  factory :project do
+    sequence(:name)  {|n| "My test project #{n}"}
+    is_active        true
   end
 
 end

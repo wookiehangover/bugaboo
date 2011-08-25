@@ -1,0 +1,13 @@
+<%= form_for @project  do |f| %>
+  <div class="form-row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-row">
+    <%= f.label :is_active %>
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="form-row">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

@@ -40,4 +40,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.include(MailerMacros)
+  config.include(AuthenticationMacros)
+  config.before(:each) { reset_email }
+
 end

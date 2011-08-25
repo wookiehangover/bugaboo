@@ -1,0 +1,5 @@
+<div class="check-box-item">
+  <%= check_box_tag "user[project_ids][]", project.id, @user.projects.include?(project), :id => "user_project_#{project.id}" %>
+  <label for="user_project_<%= project.id %>"><%= project.name %></label>
+  <%= hidden_field_tag "user[project_ids][]", "" %>
+</div>
