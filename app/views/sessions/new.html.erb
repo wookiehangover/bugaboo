@@ -1,5 +1,5 @@
-<div id="login">
-
+<fieldset id="login">
+  <legend>Login</legend>
   <%= form_tag("/sessions", :method => "post") do |f| %>
     <%= label_tag :email %>
     <%= text_field_tag :email %>
@@ -10,4 +10,4 @@
     <%= link_to 'Forgot Your Password?', new_password_reset_path %>
   <% end %>
 
-</div>
+</fieldset>

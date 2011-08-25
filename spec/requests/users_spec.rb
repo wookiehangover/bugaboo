@@ -64,6 +64,39 @@ describe "Users" do
       click_link "Delete"
       page.should have_content("Successfully deleted")
     end
+
+  end
+
+  context "guest" do
+
+    it "should not allow the user to manage users" do
+      visit users_path
+      page.should have_content("Access denied")
+
+      visit new_user_path
+      page.should have_content("Access denied")
+
+      visit edit_user_path(@user)
+      page.should have_content("Access denied")
+    end
+
+  end
+
+  context "authenticated user" do
+
+    it "should allow the user to edit themselves" do
+      login(@user)
+      visit edit_user_path(@user)
+      page.should have_content("Edit user")
+    end
+
+    it "should not allow the user to edit someone else" do
+      login(@user)
+      admin = Factory(:admin)
+      visit edit_user_path(admin)
+      page.should have_content("Access denied")
+    end
+
   end
 
 end

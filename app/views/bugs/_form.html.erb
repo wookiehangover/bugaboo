@@ -1,0 +1,39 @@
+<%= form_for @bug  do |f| %>
+  <% if @bug.errors.any? %>
+   <div class="error_messages">
+     <h2>Form is invalid</h2>
+     <ul>
+       <% for message in @bug.errors.full_messages %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+   </div>
+  <% end %>
+  <div class="form-row">
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+  </div>
+  <div class="form-row">
+    <%= f.label :steps_to_reproduce %>
+    <%= f.text_area :steps_to_reproduce %>
+  </div>
+  <div class="form-row">
+    <%= select(:bug, :user_assigned_id, @users, {:prompt => 'Assign to user'}) %>
+  </div>
+  <div class="form-row">
+    <%= f.label :project %>
+    <%= select(:bug, :project_id, @projects, {:prompt => 'Assign to project'}) %>
+  </div>
+  <div class="form-row">
+    <%= f.label :current_state %>
+    <%= select(:bug, :current_state, Bug::STATES) %>
+  </div>
+  <div class="form-row">
+    <%= f.label :severity %>
+    <%= select(:bug, :severity, Bug::SEVERITIES) %>
+  </div>
+  <div class="form-row">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
+

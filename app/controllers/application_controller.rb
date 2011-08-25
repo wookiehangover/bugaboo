@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to login_url, :alert => "Access denied"
+  end
+
   private
 
   def current_user

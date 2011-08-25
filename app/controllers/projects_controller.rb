@@ -1,18 +1,19 @@
 class ProjectsController < ApplicationController
 
-  authorize_resource
-
   before_filter :find_project, :only => [:edit, :update, :destroy]
 
   def index
+    authorize! :read, Project
     @projects = Project.all
   end
 
   def edit
+    authorize! :edit, @project
   end
 
   def update
-     if @project.update_attributes(params[:project])
+    authorize! :update, @project
+    if @project.update_attributes(params[:project])
       redirect_to projects_url, :notice => "#{@project.name} was saved!"
     else
       render 'edit'
@@ -21,10 +22,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    authorize! :new, @project
   end
 
   def create
     @project = Project.new
+    authorize! :create, @project
     @project.attributes = params[:project]
 
     if @project.save
@@ -35,6 +38,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @project
     @project.destroy
     redirect_to projects_url, :notice => "Successfully deleted"
   end

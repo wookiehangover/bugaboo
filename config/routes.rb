@@ -4,7 +4,11 @@ Bugaboo::Application.routes.draw do
   resource :sessions, :only => [ :create, :new, :destroy ]
   resources :password_resets, :only => [ :create, :edit, :new, :update ]
   resources :projects
+  resources :bugs
   resources :users
+
+  match '/logout' => 'sessions#destroy', :as => 'logout'
+  match '/login' => 'sessions#new', :as => 'login'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

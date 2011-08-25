@@ -1,19 +1,21 @@
 class UsersController < ApplicationController
 
-  authorize_resource
-
   before_filter :find_user, :only => [:edit, :update, :destroy]
   before_filter :fetch_projects, :only => [:edit, :update, :new, :create]
 
   def index
+    authorize! :read, User
     @users = User.all
   end
 
   def edit
+    authorize! :edit, @user
   end
 
   def update
-     if @user.update_attributes(params[:user])
+    authorize! :update, @user
+
+    if @user.update_attributes(params[:user])
       redirect_to users_url, :notice => "#{@user.full_name} user was saved!"
     else
       render 'edit'
@@ -22,10 +24,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    authorize! :new, @user
   end
 
   def create
     @user = User.new
+
+    authorize! :create, @user
+
     @user.attributes = params[:user]
 
     if @user.save
@@ -36,6 +42,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @user
+
     @user.destroy
     redirect_to users_url, :notice => "Successfully deleted"
   end

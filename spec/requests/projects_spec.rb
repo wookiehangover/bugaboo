@@ -40,4 +40,19 @@ describe "Projects" do
     end
   end
 
+  context "guest" do
+
+    it "should not allow the user to manage projects" do
+      visit projects_path
+      page.should have_content("Access denied")
+
+      visit new_project_path
+      page.should have_content("Access denied")
+
+      visit edit_project_path(@project)
+      page.should have_content("Access denied")
+    end
+
+  end
+
 end

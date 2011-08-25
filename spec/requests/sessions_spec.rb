@@ -25,6 +25,12 @@ describe "Session" do
       page.should have_content("Invalid email or password")
     end
 
+    it "should be able to log out" do
+      login
+      visit logout_path
+      page.should have_content("Logged out!")
+    end
+
   end
 
 end
