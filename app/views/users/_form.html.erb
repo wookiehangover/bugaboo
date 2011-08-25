@@ -23,11 +23,11 @@
   </div>
   <div class="form-row">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div class="form-row">
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <%= render :partial => 'project', :collection => @projects %>
   <div class="form-row button-row">
