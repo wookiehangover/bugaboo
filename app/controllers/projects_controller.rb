@@ -5,6 +5,18 @@ class ProjectsController < ApplicationController
   def index
     authorize! :read, Project
     @projects = Project.all
+
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @projects }
+    end
+  end
+
+  def show
+    authorize! :read, Project
+    @project = Project.find(params[:id])
+
+    render :json => @project
   end
 
   def edit

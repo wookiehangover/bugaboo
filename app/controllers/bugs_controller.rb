@@ -15,6 +15,18 @@ class BugsController < ApplicationController
     @bugs = Bug.order("#{sort_column} #{sort_direction}")
         .paginate(:page => page, :per_page => per_page)
         .all
+
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @bugs }
+    end
+  end
+
+  def show
+    authorize! :read, Bug
+
+    @bug = Bug.find(params[:id])
+    render :json => @bug
   end
 
   def edit
